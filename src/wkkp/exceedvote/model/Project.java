@@ -1,8 +1,10 @@
 package wkkp.exceedvote.model;
 
 /**
-* Project in eXceedVote which contains project id and project description
-*/
+ * Project in eXceedVote which contains project id and project description
+ * 
+ * @author Witsarut Suwanich
+ */
 public class Project {	
 	/* an id of each project */
 	private int id;
@@ -15,7 +17,6 @@ public class Project {
 	}
 	
 	/**
-	* To get the project id
 	* @return an project id
 	*/
 	public int getProjectID() {
@@ -23,7 +24,6 @@ public class Project {
 	}
 	
 	/**
-	* To get a project description 
 	* @return a project description
 	*/
 	public String getProjectDescription() {
@@ -31,7 +31,6 @@ public class Project {
 	}
 	
 	/**
-	* To get a project name
 	* @return a project name
 	*/
 	public String getName() {

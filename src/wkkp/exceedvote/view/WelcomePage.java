@@ -23,7 +23,11 @@ import javax.swing.JTextField;
 import wkkp.exceedvote.controller.Exceed;
 import wkkp.exceedvote.model.ProjectList;
 
-
+/**
+ * Welcome page of the program
+ * 
+ * @author Kanisorn Wirutkul
+ */
 public class WelcomePage extends JFrame{
 	private VotePage votePage;
 	private ProjectListPage projectListPage;
@@ -45,37 +49,39 @@ public class WelcomePage extends JFrame{
 			System.out.println("duck");
 	}
 	private void initComponents(){
-		welcomeText = new JLabel("Exceed Vote");
+		welcomeText = new JLabel("eXceed Vote");
 		welcomeText.setPreferredSize(new Dimension(400,100));
-		welcomeText.setFont(new Font("Tahoma",15,40));
+		welcomeText.setFont(new Font("Verdana",15,45));
 		welcomeText.setHorizontalAlignment(JLabel.CENTER);
 		
 		
 		ActionListener pr = new GoToProjectList(exceed);
 		buttonGoProjectList = new JButton("Project");
-		buttonGoProjectList.setPreferredSize(new Dimension(150,40));
+		buttonGoProjectList.setPreferredSize(new Dimension(170,50));
+		buttonGoProjectList.setFont(new Font("Verdana", 15, 20));
 		buttonGoProjectList.addActionListener(pr);
 		
 		ActionListener vo = new GoToVote(exceed);
-		buttonGoVote = new JButton("Vote!!");
-		buttonGoVote.setPreferredSize(new Dimension(150,40));
+		buttonGoVote = new JButton("Vote");
+		buttonGoVote.setPreferredSize(new Dimension(170,50));
+		buttonGoVote.setFont(new Font("Verdana", 15, 20));
 		buttonGoVote.addActionListener(vo);	
 		
 		panel1 = new JPanel();
         panel1.setLayout(new FlowLayout());
-        panel1.setPreferredSize(new Dimension(350,180));
+        panel1.setPreferredSize(new Dimension(350, 80));
         panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout());
-		panel2.setPreferredSize(new Dimension(350,120));
+		panel2.setPreferredSize(new Dimension(350, 50));
 		panel3 = new JPanel();
         panel3.setLayout(new FlowLayout());
-        panel3.setPreferredSize(new Dimension(350,120));
+        panel3.setPreferredSize(new Dimension(350, 50));
 		
 		
 		Container contents = this.getContentPane();
 		contents.setLayout(new BoxLayout(contents,BoxLayout.Y_AXIS));
 		//contents.setLayout(new BorderLayout());
-		contents.setPreferredSize(new Dimension(350,400));
+		contents.setPreferredSize(new Dimension(350,300));
 		
 		panel1.add(welcomeText);
 		panel2.add(buttonGoProjectList);

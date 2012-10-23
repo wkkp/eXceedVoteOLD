@@ -2,6 +2,10 @@ package wkkp.exceedvote.model;
 
 import java.util.List;
 
+/**
+ * 
+ * @author 
+ */
 public class Ballot {
 	
 	private List<Criteria> listOfCriteria;

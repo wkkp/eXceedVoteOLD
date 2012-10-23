@@ -28,13 +28,17 @@ import javax.swing.JTextField;
 import wkkp.exceedvote.controller.Exceed;
 import wkkp.exceedvote.view.WelcomePage.GoToProjectList;
 
+/**
+ * Vote Page for voting
+ * 
+ * @author Kanisorn Wirutkul
+ */
 public class VotePage extends JFrame {
 	private ProjectListPage projectListPage;
 	private WelcomePage welcomePage;
 	private JTextArea teamName1, teamName2, teamName3, teamName4, teamName5;
 	private List<JLabel> criteria;
 	private List<JCheckBox> checkBox;
-	private JCheckBox c1, c2, c3, c4, c5;
 	private JPanel panel1, panel2, panel3, panel4, panel5;
 	private JTextField enterName;
 	private JButton applyButton, cancelButton, buttonGoProjectList,
@@ -79,15 +83,9 @@ public class VotePage extends JFrame {
 		enterName = new JTextField();
 		enterName.setPreferredSize(new Dimension(150, 20));
 
-		teamName1 = new JTextArea();
-		teamName2 = new JTextArea();
-		teamName3 = new JTextArea();
-		teamName4 = new JTextArea();
-		teamName5 = new JTextArea();
-
-		for (int i = 0; i < exceed.getCriteriaSize(); i++) {
+		/*for (int i = 0; i < exceed.getCriteriaSize(); i++) {
 			setCheckBox(i);
-		}
+		}*/
 
 		/*
 		 * c1 = new JCheckBox("TeamA"); c1.setFont(new Font("Angsananew", 15,
@@ -116,12 +114,21 @@ public class VotePage extends JFrame {
 		panel5.setLayout(new FlowLayout());
 
 		Container contents = this.getContentPane();
-		contents.setLayout(new BoxLayout(contents, BoxLayout.Y_AXIS));
-		contents.setPreferredSize(new Dimension(350, 400));
+		//contents.setLayout(new BoxLayout(contents, BoxLayout.Y_AXIS));
+		contents.setLayout(null);
+		contents.setPreferredSize(new Dimension(500, criteria.size()*230));
+		
+		for (int j = 0; j < exceed.getCriteriaSize(); j++) {
+			setCheckBox(j);
+		}
 
 		for (int i = 0; i < exceed.getCriteriaSize(); i++) {
+			System.out.println(criteria.get(i).getText());
 			panel1.add(criteria.get(i));
-			for (int j = 0; j < exceed.getChoiceSize(i); j++) {
+			int begin = (i+1)*5;
+			System.out.println("begin" + begin);
+			for (int j = begin-5; j < begin; j++) {
+				System.out.println(checkBox.get(j).getText());
 				panel1.add(checkBox.get(j));
 			}
 
@@ -137,15 +144,18 @@ public class VotePage extends JFrame {
 		panel2.add(cancelButton);
 		panel2.add(buttonGoProjectList);
 		panel2.add(buttonGoWelcomePage);
-
+		
 		panel3.add(buttonGoProjectList);
 		panel3.add(buttonGoWelcomePage);
 
 		panel4.add(panel1, BorderLayout.WEST);
 
-		panel5.add(panel3, BorderLayout.CENTER);
-
-		contents.add(panel5);
+		buttonGoProjectList.setBounds(260, 30, 100, 50);
+		buttonGoWelcomePage.setBounds(140, 30, 100, 50);
+		panel4.setBounds(70, 100, 500, 150*criteria.size());
+		panel2.setBounds(20, criteria.size()*200, 500, 100);
+		contents.add(buttonGoWelcomePage);
+		contents.add(buttonGoProjectList);
 		contents.add(panel4);
 		contents.add(panel2);
 
@@ -164,11 +174,14 @@ public class VotePage extends JFrame {
 		criterion = exceed.getCriteria();
 		for (int i = 0; i < exceed.getCriteria().length; i++) {
 			System.out.println(criterion[i]);
-			criteria.add(new JLabel(criterion[i]));
+			JLabel temp = new JLabel(criterion[i]);
+			temp.setFont(new Font("Verdana", 15, 20));
+			criteria.add(temp);
 		}
 	}
 
 	public void setCheckBox(int index) {
+		System.out.println("check");
 		String checkBoxName[] = exceed.getChoiceFromCriteria(index);
 		int size = exceed.getChoiceSize(index);
 		System.out.println("check box size : " + size);
@@ -230,14 +243,16 @@ public class VotePage extends JFrame {
 						"eXceedVote", JOptionPane.PLAIN_MESSAGE);
 				System.out.println(exceed.getCriteriaSize());
 				for (int j = 0; j < exceed.getCriteriaSize(); j++) {
-					for (int i = 0; i < exceed.getChoiceSize(j); i++) {
+					int begin = (j+1)*5;
+					prj += " " + criteria.get(j).getText();
+					for (int i = begin-5; i < begin; i++) {
 						if (checkBox.get(i).isSelected()) {
 							prj += " " + checkBox.get(i).getText();
 							checkBox.get(i).setSelected(false);
 						}
 					}
 				}
-				exceed.saveVote(userName + " has been voted for" + prj);
+				exceed.saveVote(userName + "" + prj);
 			}
 		}
 	}

@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,8 +20,15 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import wkkp.exceedvote.controller.Exceed;
+import wkkp.exceedvote.model.ProjectDescription;
 import wkkp.exceedvote.view.WelcomePage.GoToVote;
 
+/**
+ * ProjectList Page contains all of project, project description for user to
+ * see the detail of each project
+ *
+ * @author Kanisorn Wirutkul
+ */
 public class ProjectListPage extends JFrame {
 	private VotePage votePage;
 	private WelcomePage welcomePage;
@@ -29,7 +37,7 @@ public class ProjectListPage extends JFrame {
 	private JTextArea projectDesciption;
 
 	private JButton buttonGoVote, buttonGoWelcomePage;
-	private JPanel panel1, panel2, panel3, panel4, panel5;
+	private JPanel leftPanel, panel1, panel2, panel3, panel4, panel5;
 	private Exceed exceed;
 
 	public ProjectListPage(Exceed exceed) {
@@ -44,16 +52,17 @@ public class ProjectListPage extends JFrame {
 
 		projectName = new JLabel("ProjectName");
 		projectName.setHorizontalAlignment(JTextField.CENTER);
+		projectName.setFont(new Font("Verdana", 15, 20));
 		projectDesciption = new JTextArea();
 		projectDesciption.setEditable(false);
-		//projectDesciption.setHorizontalAlignment(JTextArea.CENTER);
+		projectDesciption.setAlignmentY(CENTER_ALIGNMENT);
 
 
-		chooseProject = new JLabel("Choose Project...");
-		chooseProject.setFont(new Font("Angsananew", 15, 40));
+		chooseProject = new JLabel("Choose Project");
+		chooseProject.setFont(new Font("Verdana", 15, 25));
 
 		ActionListener vo = new GoToVote(exceed);
-		buttonGoVote = new JButton("Vote!!");
+		buttonGoVote = new JButton("Vote");
 		buttonGoVote.addActionListener(vo);
 
 		ActionListener wp = new GoToWelcomePage(exceed);
@@ -63,46 +72,24 @@ public class ProjectListPage extends JFrame {
 		ActionListener ac = new SelectProjectListener(exceed);
 		projectList = new JComboBox();
 		projectList.addActionListener(ac);
-		/*projectList.insertItemAt("TeamA", 0);
-		projectList.insertItemAt("TeamB", 1);
-		projectList.insertItemAt("TeamC", 2);
-		projectList.insertItemAt("TeamD", 3);
-		projectList.insertItemAt("TeamE", 4);*/
 		setProjectList();
 
-		panel1 = new JPanel();
-		panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
-
-		panel2 = new JPanel();
-		panel2.setLayout(new FlowLayout());
-
-		panel3 = new JPanel();
-
-		panel4 = new JPanel();
-
-		panel5 = new JPanel();
-		panel5.setLayout(new BoxLayout(panel5, BoxLayout.Y_AXIS));
-
 		Container contents = this.getContentPane();
-		contents.setLayout(new BorderLayout());
-		contents.setPreferredSize(new Dimension(650, 400));
+		contents.setLayout(null);
+		contents.setPreferredSize(new Dimension(800, 500));
 
-		panel1.add(chooseProject);
-		panel1.add(projectList);
-
-		panel2.add(buttonGoWelcomePage);
-		panel2.add(buttonGoVote);
-
-		panel3.add(projectName);
-
-		panel4.add(projectDesciption);
-
-		panel5.add(panel1);
-		panel5.add(panel2);
-
-		contents.add(panel5, BorderLayout.WEST);
-		contents.add(panel3, BorderLayout.NORTH);
-		contents.add(panel4, BorderLayout.CENTER);
+		chooseProject.setBounds(350, 30, 200, 50);
+		projectList.setBounds(40, 230, 200, 50);
+		projectName.setBounds(45, 180, 200, 50);
+		projectDesciption.setBounds(300, 100, 450, 300);
+		buttonGoVote.setBounds(530, 430, 100, 40);
+		buttonGoWelcomePage.setBounds(420, 430, 100, 40);
+		contents.add(buttonGoVote);
+		contents.add(buttonGoWelcomePage);
+		contents.add(chooseProject);
+		contents.add(projectList);
+		contents.add(projectName);
+		contents.add(projectDesciption);
 
 	}
 
