@@ -14,14 +14,13 @@ public class ProjectController extends Controller {
 	 public static Result projects() {
      	return ok(project.render(Project.findAllProject(),projectForm));
   	}
-
   	public static Result deleteProject(Long id) {
   		Project.delete(id);
   	  return redirect(routes.ProjectController.projects());
   	}
-
-  	
-
+  	public static Result projectsList() {
+      return ok(projectlist.render(Project.findAllProject()));
+    }
 	public static Result addProject() {
 		Form<Project> filledForm = projectForm.bindFromRequest();
 
