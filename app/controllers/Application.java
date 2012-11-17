@@ -2,7 +2,9 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
+import play.data.*;
 
+import models.*;
 import views.html.*;
 
 public class Application extends Controller {
@@ -12,11 +14,11 @@ public class Application extends Controller {
     	 */
     	public static class Login {
         
-        	public String email;
+        	public String username;
         	public String password;
         
         	public String validate() {
-            		if(User.authenticate(email, password) == null) {
+            		if(User.authenticate(username, password) == null) {
                 		return "Invalid user or password";
             		}
             		return null;
