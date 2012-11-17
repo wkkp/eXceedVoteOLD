@@ -5,8 +5,13 @@
 # Home page
 
 # Authentication
-GET     /	                      	controllers.Application.login
+GET     /	                      	controllers.Application.redirectToLogin
+GET	/login 				controllers.Application.login
 POST	/login				controllers.Application.authenticate
+
+# Registeration
+GET	/regis 				controllers.Application.regis
+POST	/regis 				controllers.Application.register
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               	controllers.Assets.at(path="/public", file)

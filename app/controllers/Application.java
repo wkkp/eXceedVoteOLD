@@ -10,7 +10,7 @@ import views.html.*;
 public class Application extends Controller {
   
     	/**
-    	 *    Authentication
+    	 * Authentication
     	 */
     	public static class Login {
         
@@ -20,6 +20,23 @@ public class Application extends Controller {
         	public String validate() {
             		if(User.authenticate(username, password) == null) {
                 		return "Invalid user or password";
+            		}
+            		return null;
+        	}
+        
+    	}
+
+	/**
+    	 * Registeration
+    	 */
+    	public static class Regis {
+        
+        	public String username;
+        	public String password;
+        
+        	public String validate() {
+            		if(User.register(username, password) == false) {
+                		return "Cannot register with this username";
             		}
             		return null;
         	}
@@ -55,6 +72,32 @@ public class Application extends Controller {
         	session().clear();
         	flash("success", "You've been logged out");
         	return TODO;
+    	}
+
+    	/**
+    	 * Regis Page.
+    	 */
+    	public static Result regis() {
+    		return ok(
+    			regis.render(form(Regis.class))
+    		);	
+    	}
+
+    	/**
+    	 * Handle regis form submission.
+    	 */
+    	public static Result register() {
+    		Form<Regis> regisForm = form(Regis.class).bindFromRequest();
+    		if (regisForm.hasErrors()) {
+    			return badRequest(regis.render(regisForm));
+    		}
+    		else {
+    			return redirect(routes.Application.login());
+    		}	
+    	}
+
+    	public static Result redirectToLogin() {
+    		return redirect(routes.Application.login());	
     	}
   
 }

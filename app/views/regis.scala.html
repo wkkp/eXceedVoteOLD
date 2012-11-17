@@ -1,10 +1,10 @@
-@(loginForm: Form[Application.Login])
+@(regisForm: Form[Application.Regis])
 
 @import helper._
 
 <html>
 	<head>
-		<title>Login</title>
+		<title>Regis</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
 		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 		<script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="ext/javascript"></script>
@@ -43,24 +43,17 @@
 	</head>
 	<body>
 		<div class="container">
-			@form(routes.Application.authenticate, 'class -> "form-signin") {
-				<h2 class="form-signin-heading">Please sign in</h2>
-        @if(loginForm.hasGlobalErrors) { 
+			@form(routes.Application.register, 'class -> "form-signin") {
+				<h2 class="form-signin-heading">Sign up</h2>
+        @if(regisForm.hasGlobalErrors) { 
           <p class="error">
-            @loginForm.globalError.message
+            @regisForm.globalError.message
           </p>
         }
       	<input type="text" name="username" class="input-block-level" placeholder="Username">
       	<input type="password" name="password" class="input-block-level" placeholder="Password">
-      	<label class="checkbox">
-      		<input type="checkbox" value="remember-me"> Remember me
-      	</label>
-      	<button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      	<button class="btn btn-large btn-primary" type="submit">Sign up!</button>
 			}
-      @form(routes.Application.regis, 'class -> "form-signin") {
-        <h2 class="form-signin-heading">Don't have an account ?</h2>
-        <button class="btn btn-large btn-danger" type="submit">Sign up</button>
-      }
 		</div>
 	</body>	
 </html>
