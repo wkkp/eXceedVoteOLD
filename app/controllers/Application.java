@@ -9,7 +9,7 @@ import views.html.*;
 
 public class Application extends Controller {
   
-    	/**
+        /**
     	 * Authentication
     	 */
     	public static class Login {
@@ -26,7 +26,7 @@ public class Application extends Controller {
         
     	}
 
-	/**
+	    /**
     	 * Registeration
     	 */
     	public static class Regis {
@@ -68,7 +68,7 @@ public class Application extends Controller {
     	/**
      	 * Logout and clean the session.
      	 */
-   	public static Result logout() {
+   	    public static Result logout() {
         	session().clear();
         	flash("success", "You've been logged out");
         	return TODO;
@@ -97,7 +97,7 @@ public class Application extends Controller {
     	}
 
     	public static Result redirectToLogin() {
-    		return redirect(routes.Application.login());	
+    		  return redirect(routes.Application.login());	
     	}
   
 }
