@@ -3,6 +3,7 @@
 # ~~~~
 
 # Home page
+#GET	/home 				controllers.Application.home
 
 # Authentication
 GET     /	                      	controllers.Application.redirectToLogin

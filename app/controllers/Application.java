@@ -61,7 +61,7 @@ public class Application extends Controller {
             		return badRequest(login.render(loginForm));
         	} else {
             		session("username", loginForm.get().username);
-            		return TODO; 
+            		return TODO;
         	}
     	}
 
@@ -97,7 +97,11 @@ public class Application extends Controller {
     	}
 
     	public static Result redirectToLogin() {
-    		  return redirect(routes.Application.login());	
+    		return redirect(routes.Application.login());	
     	}
+
+        /*public static Result home() {
+            return ok(home.render()); 
+        }*/
   
 }
