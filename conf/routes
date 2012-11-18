@@ -3,33 +3,33 @@
 # ~~~~
 
 # Home page
-GET	/ 				controllers.Home.home
+GET		/	 						controllers.Home.home
 
 # Authentication
-GET	/login 				controllers.Application.login
-POST	/login				controllers.Application.authenticate
-GET	/logout				controllers.Application.logout
+GET		/login 						controllers.Application.login
+POST	/login						controllers.Application.authenticate
+GET		/logout						controllers.Application.logout
 
 # Registeration
-GET	/regis 				controllers.Application.regis
-POST	/regis 				controllers.Application.register
+GET		/regis 						controllers.Application.regis
+POST	/regis 						controllers.Application.register
 
-#Criteria
-GET 	/criteria  			controllers.CriteriaController.criteria()
-POST	/criteria 			controllers.CriteriaController.newCriteria()
+# Criteria
+GET 	/criteria  					controllers.CriteriaController.criteria()
+POST	/criteria 					controllers.CriteriaController.newCriteria()
 POST	/criteria/:id/delete		controllers.CriteriaController.deleteCriteria(id: Integer)
 
-#Project
-GET	/project 			controllers.ProjectController.projects()
-POST	/project 			controllers.ProjectController.addProject()
-POST	/project/:id/delete controllers.ProjectController.deleteProject(id:Long)
+# Project
+GET		/project 					controllers.ProjectController.projects()
+POST	/project 					controllers.ProjectController.addProject()
+POST	/project/:id/delete 		controllers.ProjectController.deleteProject(id:Long)
 
-#ProjectList
-GET   /project/view    controllers.ProjectController.projectsList
+# ProjectList
+GET   	/project/view    			controllers.ProjectController.projectsList
 
 # Vote
-GET	/vote 				controllers.VoteController.vote()
-POST	/vote 				controllers.VoteController.voteForProject
+GET		/vote 						controllers.VoteController.vote()
+POST	/vote 						controllers.VoteController.voteForProject
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               	controllers.Assets.at(path="/public", file)
