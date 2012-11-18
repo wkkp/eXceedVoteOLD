@@ -51,7 +51,7 @@ public class User extends Model {
 		User u = find.where()
         	             .eq("username", username)
                 	     .findUnique();
-		if (u == null) {
+		if (u == null && !username.equals("") && !password.equals("")) {
 			User newUser = new User(username, password);
 			newUser.save();
 			return true;
