@@ -1,8 +1,8 @@
-@(criteria:List[Criteria],criteriaForm:Form[Criteria])
+@(criteria:List[Criteria],criteriaForm:Form[Criteria], user: User)
 
 @import helper._
 
-@main("Criteria") {
+@main("Criteria", user) {
 	<body>
 		<center><h1>Criteria Management</h1></center>
 		<div class="container">
