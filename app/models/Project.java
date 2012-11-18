@@ -48,7 +48,7 @@ public class Project extends Model {
 	public static void delete(Long id){
 		 find.ref(id).delete();
 	}	
-	}
+}
 
 	//public static String getProjectDescription(){
 	//	return  
