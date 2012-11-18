@@ -15,12 +15,12 @@ GET	/regis 				controllers.Application.regis
 POST	/regis 				controllers.Application.register
 
 #Criteria
-GET 	/criteria  					controllers.CriteriaController.criteria()
-POST	/criteria 					controllers.CriteriaController.newCriteria()
+GET 	/criteria  			controllers.CriteriaController.criteria()
+POST	/criteria 			controllers.CriteriaController.newCriteria()
 POST	/criteria/:id/delete		controllers.CriteriaController.deleteCriteria(id: Integer)
 
 #Project
-GET		/project 			controllers.ProjectController.projects()
+GET	/project 			controllers.ProjectController.projects()
 POST	/project 			controllers.ProjectController.addProject()
 POST	/project/:id/delete controllers.ProjectController.deleteProject(id:Long)
 
@@ -28,7 +28,8 @@ POST	/project/:id/delete controllers.ProjectController.deleteProject(id:Long)
 GET 	/project/view		controllers.ProjectController.projectsList
 
 # Vote
-GET		/vote 				controllers.VoteController.vote()
+GET	/vote 				controllers.VoteController.vote()
+POST	/vote 				controllers.VoteController.voteForProject
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               	controllers.Assets.at(path="/public", file)
