@@ -3,6 +3,7 @@
 @import helper._
 
 <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
 <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="ext/javascript"></script>
 <script src="@routes.Assets.at("javascripts/bootstrap.js")" type="text/javascript"></script>
@@ -53,11 +54,50 @@
     }
   </div>
 
-
+  <div class="tab-pane" id="tabs-stacked">
+              <h3>Stacked Tabs</h3>
+              <div class="tabbable">
+                <ul class="nav nav-tabs nav-stacked span2">
+                  <li class="active"><a href="#tabs3-pane1" data-toggle="tab">Tab 1</a></li>
+                  <li><a href="#tabs3-pane2" data-toggle="tab">Tab 2</a></li>
+                  <li><a href="#tabs3-pane3" data-toggle="tab">Tab 3</a></li>
+                  <li><a href="#tabs3-pane4" data-toggle="tab">Tab 4</a></li>
+                </ul>
+                <div class="tab-content span5">
+                  <div id="tabs3-pane1" class="tab-pane active">
+                    <h4>The Markup</h4>
+                    <pre>&lt;div class=&quot;tabbable&quot;&gt;
+  &lt;ul class=&quot;nav nav-tabs <strong>nav-stacked</strong>&quot;&gt;
+    //and so on ...</pre>
+                  </div>
+                  <div id="tabs3-pane2" class="tab-pane">
+                  <h4>Pane 2 Content</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+                  </div>
+                  <div id="tabs3-pane3" class="tab-pane">
+                    <h4>Pane 3 Content</h4>
+                    <p>Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+                  </div>
+                  <div id="tabs3-pane4" class="tab-pane">
+                    <h4>Pane 4 Content</h4>
+                    <p>Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit. Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti.</p>
+                  </div>
+                </div><!-- /.tab-content -->
+              </div><!-- /.tabbable -->
+            </div>
+            
   <div class="span8">
 
   <h2>@projects.size() project(s)</h2>
     
+  <a href="#" onclick="updateText();">test</a>
+  <div id="fuck">hello</div>
+  <script type="text/javascript">
+  function updateText() {
+    document.getElementById("fuck").innerHTML = "whatever";
+  }
+  </script>
+
     <table class="table table-striped">
         <thead>
           <tr>
