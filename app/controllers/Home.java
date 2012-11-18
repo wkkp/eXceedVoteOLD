@@ -26,6 +26,9 @@ public class Home extends Controller {
 			.eq("username", request().username())
 			.findUnique())
 		);*/
-		return ok(home.render(Exceed.getUserInSession()));
+		if (Exceed.getUserInSession() != null)
+			return ok(home.render(Exceed.getUserInSession()));
+		else
+			return redirect(routes.Application.login());
 	}
 }
