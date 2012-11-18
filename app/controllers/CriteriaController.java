@@ -20,14 +20,7 @@ public class CriteriaController extends Controller {
 	// }
 
 	public static Result criteria(){
-		if(User.getUserTypeId(User.findByUsername(request().username())) == 9) {
-			return ok(views.html.criteria.render(Criteria.all(),criteriaForm, User.findByUsername(request().username())));
-		}
-		else
-			return redirect(routes.Home.home());
-			
-
-		
+		return ok(views.html.criteria.render(Criteria.all(),criteriaForm, User.findByUsername(request().username())));
 	}
 
 	public static Result newCriteria(){

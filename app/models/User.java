@@ -67,8 +67,4 @@ public class User extends Model {
         		   .findUnique();
 	}
 
-	public static int getUserTypeId(User user) {
-		return user.type_id;
-	}
-
 }

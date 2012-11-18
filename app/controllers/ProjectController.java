@@ -16,14 +16,10 @@ public class ProjectController extends Controller {
 	static Form<Project> projectForm = form(Project.class);
 
 	public static Result projects() {
-		if(User.getUserTypeId(User.findByUsername(request().username())) == 9) {
-			return ok(project.render(Project.findAllProject()
-									 , projectForm
-									 , User.findByUsername(request().username()))
-			);
-		}
-		else
-			return redirect(routes.ProjectController.projectsList());
+		return ok(project.render(Project.findAllProject()
+								 , projectForm
+								 , User.findByUsername(request().username()))
+		);
 	}
 
   	public static Result deleteProject(Long id) {
@@ -32,7 +28,7 @@ public class ProjectController extends Controller {
   	}
 
   	public static Result projectsList() {	
-      	return ok(projectlist.render(Project.findAllProject(), User.findByUsername(request().username())));
+      		return ok(projectlist.render(Project.findAllProject(), User.findByUsername(request().username())));	
 	}
   	
 	public static Result addProject() {

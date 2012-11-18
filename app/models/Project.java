@@ -50,3 +50,10 @@ public class Project extends Model {
 	}	
 }
 
+	//public static String getProjectDescription(){
+	//	return  
+	//}
+
+	//public static void removeProject(){
+
+	//}
