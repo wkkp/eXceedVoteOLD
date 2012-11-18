@@ -61,6 +61,7 @@ public class Application extends Controller {
             		return badRequest(login.render(loginForm));
         	} else {
             		session("username", loginForm.get().username);
+                    Exceed.setUserInSession(loginForm.get().username);
             		return redirect(routes.Home.home());
         	}
     	}

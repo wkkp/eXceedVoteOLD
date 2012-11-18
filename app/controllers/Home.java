@@ -21,6 +21,11 @@ public class Home extends Controller {
 	}	
 
 	public static Result home() {
-		return ok(home.render());
+		/*return ok(home.render(
+			User.find.where()
+			.eq("username", request().username())
+			.findUnique())
+		);*/
+		return ok(home.render(Exceed.getUserInSession()));
 	}
 }
