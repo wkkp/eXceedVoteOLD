@@ -21,7 +21,7 @@ public class VoteController extends Controller {
   		return ok(vote.render(Project.findAllProject()
   				      , Criteria.all()
   				      , criteriaForm
-  				      , Exceed.getUserInSession())
+  				      , User.findByUsername(request().username()))
   		);
 	}
 
@@ -29,7 +29,7 @@ public class VoteController extends Controller {
 		return ok(vote.render(Project.findAllProject()
 				      , Criteria.all()
 				      , criteriaForm
-				      , Exceed.getUserInSession())
+				      , User.findByUsername(request().username()))
 		);
 	}
 

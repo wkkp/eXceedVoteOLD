@@ -20,13 +20,13 @@ public class CriteriaController extends Controller {
 	// }
 
 	public static Result criteria(){
-		return ok(views.html.criteria.render(Criteria.all(),criteriaForm));
+		return ok(views.html.criteria.render(Criteria.all(),criteriaForm, User.findByUsername(request().username())));
 	}
 
 	public static Result newCriteria(){
 		Form<Criteria> filledForm = criteriaForm.bindFromRequest();
 		if(filledForm.hasErrors()){
-			return badRequest(views.html.criteria.render(Criteria.all(),filledForm));
+			return badRequest(views.html.criteria.render(Criteria.all(),filledForm, User.findByUsername(request().username())));
 		} else {
 			Criteria.create(filledForm.get());
 			return redirect(routes.CriteriaController.criteria());

@@ -1,8 +1,8 @@
-@(projects: List[Project], projectForm: Form[Project])
+@(projects: List[Project], projectForm: Form[Project], user: User)
 
 @import helper._
 
-@main("Project manager") {
+@main("Project manager", user) {
 	<body>
 		<div class="container span6">
 			@form(routes.ProjectController.addProject(), 'class -> "form-signin") {

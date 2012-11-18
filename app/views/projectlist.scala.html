@@ -1,8 +1,8 @@
-@(projects: List[Project])
+@(projects: List[Project], user: User)
 
 @import helper._
 
-@main("Project List") {    
+@main("Project List", user) {    
 <h4>Project(s)</h4>
    
 <div class="bs-docs-example">

@@ -22,9 +22,7 @@ public class Home extends Controller {
 
 	public static Result home() {
 		return ok(home.render(
-			User.find.where()
-			.eq("username", request().username())
-			.findUnique())
+			User.findByUsername(request().username()))
 		);
 	}
 }
