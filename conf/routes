@@ -25,7 +25,7 @@ POST	/project 			controllers.ProjectController.addProject()
 POST	/project/:id/delete controllers.ProjectController.deleteProject(id:Long)
 
 #ProjectList
-GET 	/project/view		controllers.ProjectController.projectsList
+GET   /project/view    controllers.ProjectController.projectsList
 
 # Vote
 GET	/vote 				controllers.VoteController.vote()
