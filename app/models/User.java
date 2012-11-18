@@ -19,6 +19,7 @@ public class User extends Model {
 	public String username;
 	@Constraints.Required
 	public String password;
+	public int ballotqnty;
 	//private String nontri_account;
 	private static final long serialVersionUID = 1L;
 
@@ -73,5 +74,9 @@ public class User extends Model {
 		return find.where()
                    .eq("username", username)
         		   .findUnique();
+	}
+
+	public void useBallot(int qnty) {
+		this.ballotqnty -= qnty;
 	}
 }
