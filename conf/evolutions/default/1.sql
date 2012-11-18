@@ -3,6 +3,17 @@
 
 # --- !Ups
 
+<<<<<<< HEAD
+=======
+create table ballot (
+  id                        bigint auto_increment not null,
+  user_id                   bigint,
+  project_id                bigint,
+  score                     double,
+  constraint pk_ballot primary key (id))
+;
+
+>>>>>>> mysql command create new table
 create table criteria (
   id                        integer auto_increment not null,
   name                      varchar(255),
@@ -31,6 +42,11 @@ create table user (
 
 SET FOREIGN_KEY_CHECKS=0;
 
+<<<<<<< HEAD
+=======
+drop table ballot;
+
+>>>>>>> mysql command create new table
 drop table criteria;
 
 drop table project;
