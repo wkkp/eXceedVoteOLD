@@ -36,21 +36,21 @@ public class User extends Model {
 
 	/**
 	 * Authenticate a User.
-     	 */
-    	public static User authenticate(String username, String password) {
-    		return find.where()
-                	   .eq("username", username)
-            		   .eq("password", password)
-        		   .findUnique();
-    	}
+ 	 */
+	public static User authenticate(String username, String password) {
+		return find.where()
+            	   .eq("username", username)
+        		   .eq("password", password)
+    		       .findUnique();
+	}
 
-    	/**
-     	 * Regis a User.
-     	 */
-    	public static boolean register(String username, String password) {
+	/**
+ 	 * Regis a User.
+ 	 */
+	public static boolean register(String username, String password) {
 		User u = find.where()
-        	             .eq("username", username)
-                	     .findUnique();
+	    	         .eq("username", username)
+	            	 .findUnique();
 		if (u == null && !username.equals("") && !password.equals("")) {
 			User newUser = new User(username, password);
 			newUser.save();
