@@ -13,8 +13,6 @@ import models.*;
 @Security.Authenticated(Secured.class)
 public class VoteController extends Controller {
 
-	public
-
 	public static class VoteCollector {
     
     	public Integer criteriaId;
@@ -26,6 +24,7 @@ public class VoteController extends Controller {
   		return ok(vote.render(Project.findAllProject()
   				      , Criteria.all()
   				      , criteriaForm
+  				      , projectForm
   				      , User.findByUsername(request().username()))
   		);
 	}
