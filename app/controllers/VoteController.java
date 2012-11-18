@@ -13,6 +13,9 @@ import models.*;
 @Security.Authenticated(Secured.class)
 public class VoteController extends Controller {
 
+	static Form<Criteria> criteriaForm = form(Criteria.class);
+	static Form<Project> projectForm = form(Project.class);
+	
 	public static class VoteCollector {
     
     	public Integer criteriaId;
